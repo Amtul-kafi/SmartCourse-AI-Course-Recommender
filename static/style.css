@@ -1,0 +1,118 @@
+/* --- RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0f19;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* PARTICLES */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* NAVBAR */
+nav.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+body { padding-top: 70px; }
+
+/* HERO */
+header {
+    background: linear-gradient(135deg, #101820, #2a2a72);
+    text-align: center;
+    padding: 120px 20px;
+    position: relative;
+    z-index: 1;
+}
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00f5ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+header p {
+    font-size: 1.2rem;
+    color: #bdbdbd;
+    margin-top: 10px;
+}
+
+/* COURSES SECTION */
+section#Courses {
+    padding: 60px 20px;
+    background-color: rgba(20, 24, 38, 0.9);
+    position: relative;
+    z-index: 1;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    color: #fff;
+    padding: 20px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+.card-title { color: #00f5ff; font-weight: bold; }
+.card-text { color: #cccccc; }
+.progress-bar {
+    background: linear-gradient(90deg, #00f5ff, #8a2be2);
+    color: #000;
+    font-weight: bold;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: linear-gradient(90deg, #8a2be2, #00f5ff);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background: linear-gradient(90deg, #00f5ff, #8a2be2);
+    box-shadow: 0 0 10px #00f5ff;
+}
+
+/* FOOTER */
+footer {
+    background-color: #101820;
+    color: #ccc;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    position: relative;
+    z-index: 1;
+}
