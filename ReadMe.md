@@ -97,3 +97,5 @@ The system processes the input and returns relevant course recommendations.
 ### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
+
+Deployment ready version
