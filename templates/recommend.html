@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Recommendation - SmartCourse{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">SmartCourse Recommendations</h2>
+    
+    <!-- Input Section -->
+    <div class="card p-4 mb-4 shadow-sm">
+        <h5>Enter your learning preferences:</h5>
+        <textarea id="userQuery" class="form-control mb-3" rows="2" placeholder="E.g., I want to learn Python for Data Science, Cybersecurity, Web Development, AI, Cloud Computing"></textarea>
+
+        <div class="mb-3">
+            <label for="modelSelect" class="form-label">Select Recommendation Model:</label>
+            <select id="modelSelect" class="form-select">
+                <option value="tfidf">TF-IDF (Keyword Focused)</option>
+                <option value="neural">Neural (Semantic Understanding)</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" id="getRecommendations">Get Recommendations</button>
+    </div>
+
+    <!-- Recommendations Results -->
+    <div id="recommendations" class="mt-4">
+        <h5 class="mb-3">Top 10 Recommended Courses:</h5>
+        <div id="results" class="list-group">
+            <!-- Dynamic results will appear here -->
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById("getRecommendations").addEventListener("click", async () => {
+    const query = document.getElementById("userQuery").value.trim();
+    const model = document.getElementById("modelSelect").value;
+
+    if (!query) {
+        alert("Please enter a learning preference!");
+        return;
+    }
+
+    const response = await fetch("/api/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: query, model: model })
+    });
+
+    const data = await response.json();
+    const resultsDiv = document.getElementById("results");
+    resultsDiv.innerHTML = ""; // Clear previous results
+
+    if (data.recommendations && data.recommendations.length > 0) {
+        data.recommendations.forEach(course => {
+            const courseHTML = `
+            <div class="list-group-item mb-3 shadow-sm">
+                <h6>${course.title} <span class="badge bg-success">${course.department}</span></h6>
+                <p>${course.description}</p>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar" role="progressbar" style="width: ${course.relevance}%" aria-valuenow="${course.relevance}" aria-valuemin="0" aria-valuemax="100">
+                        ${course.relevance}%
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary btn-sm save-btn" data-id="${course.course_id}">Save Recommendation</button>
+            </div>`;
+            resultsDiv.insertAdjacentHTML("beforeend", courseHTML);
+        });
+
+        // Add save functionality
+        document.querySelectorAll(".save-btn").forEach(button => {
+            button.addEventListener("click", async (e) => {
+                const courseId = e.target.getAttribute("data-id");
+                const saveResponse = await fetch("/api/save", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ course_id: courseId, query: query, model: model })
+                });
+                if (saveResponse.ok) {
+                    e.target.textContent = "Saved!";
+                    e.target.disabled = true;
+                }
+            });
+        });
+    } else {
+        resultsDiv.innerHTML = `<p class="text-muted">No recommendations found.</p>`;
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - SmartCourse{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-5">SmartCourse Dashboard</h1>
+
+    <!-- ===================== -->
+    <!-- 1. Search History -->
+    <!-- ===================== -->
+    <section class="mb-5">
+        <h3 class="mb-3">1. Complete Search History</h3>
+        {% if search_history %}
+        <div class="accordion" id="searchHistoryAccordion">
+            {% for session in search_history %}
+            <div class="accordion-item mb-2 shadow-sm">
+                <h2 class="accordion-header" id="historyHeading{{ loop.index }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#historyCollapse{{ loop.index }}" aria-expanded="false" aria-controls="historyCollapse{{ loop.index }}">
+                        {{ session.query }} - {{ session.timestamp }}
+                    </button>
+                </h2>
+                <div id="historyCollapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="historyHeading{{ loop.index }}" data-bs-parent="#searchHistoryAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            {% for course in session.recommendations %}
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100 shadow-sm p-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ course.title }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ course.department }}</h6>
+                                        <p class="card-text">{{ course.description }}</p>
+                                        <span class="badge bg-primary">{{ course.model|upper }} - {{ course.relevance }}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-muted">No search history found yet.</p>
+        {% endif %}
+    </section>
+
+    <!-- ===================== -->
+    <!-- 2. Saved Recommendations -->
+    <!-- ===================== -->
+    <section class="mb-5">
+        <h3 class="mb-3">2. Saved Recommendations by Session</h3>
+        {% if saved_sessions %}
+        <div class="accordion" id="savedSessionsAccordion">
+            {% for session in saved_sessions %}
+            <div class="accordion-item mb-2 shadow-sm">
+                <h2 class="accordion-header" id="savedHeading{{ loop.index }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#savedCollapse{{ loop.index }}" aria-expanded="false" aria-controls="savedCollapse{{ loop.index }}">
+                        Session {{ loop.index }} - {{ session.timestamp }}
+                    </button>
+                </h2>
+                <div id="savedCollapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="savedHeading{{ loop.index }}" data-bs-parent="#savedSessionsAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            {% for course in session.recommendations %}
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100 shadow-sm p-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ course.title }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ course.department }}</h6>
+                                        <p class="card-text">{{ course.description }}</p>
+                                        <span class="badge bg-success">{{ course.model|upper }} - {{ course.relevance }}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-muted">No saved recommendations yet.</p>
+        {% endif %}
+    </section>
+
+    <!-- ===================== -->
+    <!-- 3. Side-by-Side Model Comparison -->
+    <!-- ===================== -->
+    <section class="mb-5">
+        <h3 class="mb-3">3. Side-by-Side Model Comparison</h3>
+        {% if model_comparison %}
+        <div class="row">
+            {% for comparison in model_comparison %}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Query: "{{ comparison.query }}"</h5>
+                        <p class="text-muted">Timestamp: {{ comparison.timestamp }}</p>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h6 class="text-center">TF-IDF Model</h6>
+                                <ul class="list-group list-group-flush">
+                                    {% for course in comparison.tfidf %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{ course.title }}
+                                        <span class="badge bg-primary rounded-pill">{{ course.relevance }}%</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="text-center">Neural Model</h6>
+                                <ul class="list-group list-group-flush">
+                                    {% for course in comparison.neural %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{ course.title }}
+                                        <span class="badge bg-success rounded-pill">{{ course.relevance }}%</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-muted">No model comparisons available yet.</p>
+        {% endif %}
+    </section>
+
+</div>
+{% endblock %}

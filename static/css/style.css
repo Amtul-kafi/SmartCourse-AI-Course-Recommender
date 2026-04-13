@@ -1,0 +1,35 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    color: #0d6efd;
+}
+
+#results .course-card,
+.table-striped,
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.progress {
+    height: 20px;
+    margin-top: 5px;
+}
+
+.accordion-button {
+    background-color: #f8f9fa;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.btn:disabled {
+    opacity: 0.7;
+}

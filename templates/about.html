@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}About SmartCourse{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">About SmartCourse</h1>
+
+    <!-- Project Overview -->
+    <section class="mb-5">
+        <h2 class="text-primary">Project Overview</h2>
+        <p class="lead">
+            SmartCourse is an AI-powered course recommendation system designed to help students discover personalized learning paths. 
+            Using advanced Natural Language Processing (NLP) and machine learning algorithms, the system analyzes user queries and provides 
+            relevant course recommendations, ensuring a smart and efficient learning experience.
+        </p>
+    </section>
+
+    <!-- Project Metadata -->
+    <section class="mb-5">
+        <h2 class="text-primary">Project Details</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Group ID:</strong> F25PROJECTADEA3</li>
+                    <li class="list-group-item"><strong>Student ID:</strong> BC210412722</li>
+                    <li class="list-group-item"><strong>Supervisor:</strong> Muhammad Bilal</li>
+                    <li class="list-group-item"><strong>Email:</strong> bilal.saleem@vu.edu.pk</li>
+                    <li class="list-group-item"><strong>Teams ID:</strong> bilalsaleemteams@outlook.com</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Course Domain:</strong> Machine Learning / NLP</li>
+                    <li class="list-group-item"><strong>Backend:</strong> Python 3.10+, Flask, SQLite, Pandas, Scikit-learn</li>
+                    <li class="list-group-item"><strong>ML/NLP:</strong> spaCy, Sentence-Transformers, Joblib</li>
+                    <li class="list-group-item"><strong>Frontend:</strong> HTML5, Bootstrap 5, JavaScript (Fetch API)</li>
+                    <li class="list-group-item"><strong>Development Tools:</strong> PyCharm, Virtual Environment, Git</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset Information -->
+    <section class="mb-5">
+        <h2 class="text-primary">Dataset Information</h2>
+        <p>
+            The system uses a comprehensive dataset of <strong>8,500+ courses</strong> collected from various sources. 
+            Each course entry includes:
+        </p>
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><strong>Course Name</strong></li>
+            <li class="list-group-item"><strong>University / Provider</strong></li>
+            <li class="list-group-item"><strong>Difficulty Level</strong></li>
+            <li class="list-group-item"><strong>Course Rating</strong></li>
+            <li class="list-group-item"><strong>Course Description</strong></li>
+            <li class="list-group-item"><strong>Department / Subject Area</strong></li>
+        </ul>
+        <p>
+            <strong>Preprocessing:</strong> The dataset has been cleaned to remove duplicates, missing entries, and inconsistencies. 
+            Text data has been normalized, lemmatized, and vectorized using TF-IDF and neural embeddings for accurate recommendations.
+        </p>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="mb-5">
+        <h2 class="text-primary">Technical Implementation</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Backend</h5>
+                        <p class="card-text">
+                            Flask-based REST API handles intelligent query processing. Supports:
+                            <ul>
+                                <li>POST /api/recommend</li>
+                                <li>GET /api/history</li>
+                                <li>POST /api/save</li>
+                            </ul>
+                            Real-time recommendations with TF-IDF and Neural models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Machine Learning / NLP</h5>
+                        <p class="card-text">
+                            - TF-IDF model for keyword-based course matching<br>
+                            - Neural Sentence-Transformer model for semantic understanding<br>
+                            - Cosine similarity scoring and ranking<br>
+                            - Model evaluation with precision@k, recall@k, hit-rate
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="mb-5 text-center">
+        <h3 class="text-success">SmartCourse ensures accurate, context-aware, and personalized course recommendations for every learner.</h3>
+    </section>
+</div>
+{% endblock %}
