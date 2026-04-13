@@ -98,4 +98,4 @@ The system processes the input and returns relevant course recommendations.
 ```bash
 pip install -r requirements.txt
 
-Deployment ready version
+
