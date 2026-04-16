@@ -1,0 +1,14 @@
+{
+  "tfidf": {
+    "model": "TF-IDF",
+    "precision": 0.9875,
+    "recall": 1.0,
+    "hit_rate": 1.0
+  },
+  "neural": {
+    "model": "Neural",
+    "precision": 0.9875,
+    "recall": 1.0,
+    "hit_rate": 1.0
+  }
+}

@@ -3,81 +3,231 @@
 {% block title %}Home - SmartCourse{% endblock %}
 
 {% block content %}
+
+<style>
+
+/* Hero Section */
+
+.hero-section {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71") center/cover no-repeat;
+
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.65);
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section a {
+    position: relative;
+    z-index:2;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight:600;
+}
+
+.hero-section p {
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+/* Cards */
+
+.feature-card{
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+</style>
+
 <!-- Hero Section -->
-<div class="container-fluid bg-primary text-white p-5 text-center">
-    <h1 class="display-4 fw-bold">Welcome to SmartCourse</h1>
-    <p class="lead mt-3">Your AI-powered personal course recommendation system</p>
-    <a href="{{ url_for('recommend') }}" class="btn btn-light btn-lg mt-3">Get Your Recommendations</a>
+
+<div class="hero-section text-white">
+
+<h1>SmartCourse AI Recommendation Platform</h1>
+
+<p class="lead mt-3">
+Intelligent course discovery powered by Natural Language Processing and Machine Learning
+</p>
+
+<a href="{{ url_for('recommend') }}" class="btn btn-light btn-lg mt-3">
+Explore Recommendations
+</a>
+
 </div>
 
-<!-- Project Overview & Capabilities -->
+<!-- Project Overview -->
+
 <div class="container my-5">
-    <div class="row">
-        <!-- Project Overview -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Project Overview</h4>
-                    <p class="card-text">
-                        SmartCourse is an intelligent recommendation engine designed to make educational discovery seamless and personalized. 
-                        It leverages cutting-edge Natural Language Processing (NLP) and Machine Learning to provide users with accurate, context-aware course suggestions. 
-                        Ask in natural language what you want to learn, and our AI models will find the best courses for you.
-                    </p>
-                </div>
-            </div>
-        </div>
+<div class="row">
 
-        <!-- System Capabilities -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h4 class="card-title">System Capabilities</h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Dual recommendation models: TF-IDF & Neural embeddings</li>
-                        <li class="list-group-item">Dynamic top-10 course suggestions based on your query</li>
-                        <li class="list-group-item">Relevance scoring with visual progress bars</li>
-                        <li class="list-group-item">Save preferred courses to your dashboard</li>
-                        <li class="list-group-item">View complete search history with timestamps</li>
-                        <li class="list-group-item">Side-by-side model comparison for identical queries</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="col-md-6 mb-4">
+<div class="card shadow-sm h-100 feature-card">
+<div class="card-body">
+
+<h4 class="card-title">Project Overview</h4>
+
+<p class="card-text">
+
+SmartCourse is an AI-powered course recommendation platform designed to simplify academic discovery.
+The system analyzes user queries using Natural Language Processing and intelligent ranking algorithms
+to provide accurate and personalized course suggestions.
+
+Users can search naturally, compare AI models, and identify the most relevant learning opportunities
+based on their interests and goals.
+
+</p>
+
+</div>
+</div>
 </div>
 
-<!-- How It Works Section -->
+<div class="col-md-6 mb-4">
+<div class="card shadow-sm h-100 feature-card">
+<div class="card-body">
+
+<h4 class="card-title">Core Capabilities</h4>
+
+<ul class="list-group list-group-flush">
+
+<li class="list-group-item">
+AI-Driven Course Recommendations
+</li>
+
+<li class="list-group-item">
+Dual Model Architecture: TF-IDF and Neural Embeddings
+</li>
+
+<li class="list-group-item">
+Dynamic Relevance Scoring
+</li>
+
+<li class="list-group-item">
+Personalized Course Discovery
+</li>
+
+<li class="list-group-item">
+Recommendation History Tracking
+</li>
+
+<li class="list-group-item">
+Model Comparison and Performance Insights
+</li>
+
+</ul>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- How System Works -->
+
 <div class="container my-5">
-    <h2 class="text-center mb-4">How SmartCourse Works</h2>
-    <div class="row text-center">
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm h-100 p-3">
-                <i class="bi bi-search display-4 mb-3 text-primary"></i>
-                <h5>1. Search Courses</h5>
-                <p>Enter what you want to learn in natural language, e.g., "Python for Data Science".</p>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm h-100 p-3">
-                <i class="bi bi-graph-up display-4 mb-3 text-primary"></i>
-                <h5>2. Get Recommendations</h5>
-                <p>Choose between TF-IDF or Neural model to get top-10 dynamic course suggestions with relevance scores.</p>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm h-100 p-3">
-                <i class="bi bi-bookmark-star display-4 mb-3 text-primary"></i>
-                <h5>3. Save & Track</h5>
-                <p>Save your preferred courses and track your learning history on your personalized dashboard.</p>
-            </div>
-        </div>
-    </div>
+
+<h2 class="text-center mb-5">
+How SmartCourse Works
+</h2>
+
+<div class="row text-center">
+
+<div class="col-md-4 mb-4">
+
+<div class="card shadow-sm h-100 feature-card p-3">
+
+<i class="bi bi-cpu display-4 mb-3 text-primary"></i>
+
+<h5>AI Understanding</h5>
+
+<p>
+
+The system interprets natural language queries using advanced Natural Language Processing
+to understand learning intent and domain relevance.
+
+</p>
+
 </div>
 
-<!-- Call to Action Section -->
+</div>
+
+<div class="col-md-4 mb-4">
+
+<div class="card shadow-sm h-100 feature-card p-3">
+
+<i class="bi bi-diagram-3 display-4 mb-3 text-primary"></i>
+
+<h5>Intelligent Matching</h5>
+
+<p>
+
+AI models analyze course metadata and match user intent with the most relevant
+learning opportunities.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<div class="card shadow-sm h-100 feature-card p-3">
+
+<i class="bi bi-graph-up-arrow display-4 mb-3 text-primary"></i>
+
+<h5>Smart Recommendations</h5>
+
+<p>
+
+The platform delivers ranked recommendations with relevance scoring
+to support informed learning decisions.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CTA Section -->
+
 <div class="container text-center my-5">
-    <h3>Ready to find your next course?</h3>
-    <a href="{{ url_for('recommend') }}" class="btn btn-primary btn-lg mt-3">Get Started Now</a>
+
+<h3>
+Start Exploring AI-Powered Course Recommendations
+</h3>
+
+<a href="{{ url_for('recommend') }}" class="btn btn-primary btn-lg mt-3">
+Get Recommendations
+</a>
+
 </div>
 
 {% endblock %}

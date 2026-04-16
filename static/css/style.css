@@ -1,35 +1,173 @@
+/* =========================
+   SMARTCOURSE 
+   ========================= */
+
 body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0b1220;
+    color: #ffffff;
 }
 
-h1, h2, h3, h4 {
-    color: #0d6efd;
+/* HEADINGS */
+h1, h2, h3, h4, h5 {
+    color: #ffffff;
 }
 
-#results .course-card,
-.table-striped,
-.card {
-    border: 1px solid #dee2e6;
+/* TEXT */
+p, label, li, span {
+    color: #cbd5e1;
+}
+
+/* LINKS */
+a {
+    color: #60a5fa;
+}
+
+/* INPUT FIELDS */
+input, textarea, select {
+    background: #111827 !important;
+    color: #ffffff !important;
+    border: 1px solid #374151 !important;
     border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
+    padding: 10px;
 }
 
-.progress {
-    height: 20px;
-    margin-top: 5px;
+/* PLACEHOLDER */
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af !important;
 }
 
-.accordion-button {
-    background-color: #f8f9fa;
-}
-
-.list-group-item {
+/* BUTTONS */
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb, #22c55e);
     border: none;
+    transition: 0.3s;
 }
 
-.btn:disabled {
-    opacity: 0.7;
+.btn-primary:hover {
+    transform: scale(1.03);
+}
+
+/* GENERAL BUTTONS */
+.btn {
+    border-radius: 10px;
+}
+
+/* CARDS */
+.card {
+    background: rgba(17, 24, 39, 0.85);
+    border: 1px solid #1f2937;
+    color: #ffffff;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* LIST GROUP */
+.list-group-item {
+    background: transparent !important;
+    color: #e5e7eb !important;
+    border: 1px solid #1f2937 !important;
+}
+
+/* PROGRESS BAR */
+.progress {
+    background: #1f2937;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #0f172a !important;
+}
+
+/* FOOTER */
+footer {
+    background: #0f172a !important;
+    color: #cbd5e1;
+}
+
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /*  THEME */
+    background: url("https://images.unsplash.com/photo-1677442136019-21780ecad995") center/cover no-repeat;
+
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section a {
+    position: relative;
+    z-index: 2;
+}
+
+/* BADGES */
+.badge {
+    background: #2563eb;
+    color: white;
+}
+
+/* ACCORDION */
+.accordion-button {
+    background: #111827;
+    color: #ffffff;
+}
+
+.accordion-body {
+    background: #0b1220;
+    color: #cbd5e1;
+}
+
+/* SHADOW FIX */
+.card, .accordion-item {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* MUTED TEXT FIX */
+.text-muted {
+    color: #9ca3af !important;
+}
+
+/* DASHBOARD TIMESTAMP READABILITY */
+small, .timestamp {
+    color: #cbd5e1 !important;
+}
+
+/* TEXTAREA FIX */
+textarea#userQuery {
+    background: #111827 !important;
+    color: #ffffff !important;
+    border: 1px solid #374151 !important;
+    font-size: 15px;
+}
+
+textarea#userQuery::placeholder {
+    color: #9ca3af !important;
+}
+
+/* LABEL FIX */
+label,
+.form-label {
+    color: #ffffff !important;
 }

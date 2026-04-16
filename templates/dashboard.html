@@ -19,6 +19,8 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#historyCollapse{{ loop.index }}" aria-expanded="false" aria-controls="historyCollapse{{ loop.index }}">
                         {{ session.query }} - {{ session.timestamp }}
                     </button>
+                    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+                    
                 </h2>
                 <div id="historyCollapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="historyHeading{{ loop.index }}" data-bs-parent="#searchHistoryAccordion">
                     <div class="accordion-body">
