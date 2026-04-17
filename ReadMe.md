@@ -2,14 +2,14 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 SmartCourse is a Flask-based AI prototype that recommends courses based on user input in natural language. It uses Natural Language Processing (NLP) and Machine Learning techniques to match user queries with relevant courses from a dataset.
 
 The system demonstrates how recommendation engines can be built using both traditional and semantic similarity approaches.
 
 ---
 
-## 🧠 Core Idea
+##  Core Idea
 Users enter learning preferences such as:
 - "I want to learn Python for cybersecurity"
 - "AI for beginners"
@@ -19,7 +19,7 @@ The system processes the input and returns relevant course recommendations.
 
 ---
 
-## ⚙️ Models Used
+##  Models Used
 
 ### 1. TF-IDF Model
 - Uses keyword-based matching
@@ -33,7 +33,7 @@ The system processes the input and returns relevant course recommendations.
 
 ---
 
-## 📊 Features
+##  Features
 - Course recommendations using NLP
 - Two AI models (TF-IDF + Neural Embeddings)
 - Save favorite recommendations
@@ -43,7 +43,7 @@ The system processes the input and returns relevant course recommendations.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 - **app.py** → Main Flask application (routes + APIs)
 
@@ -92,7 +92,7 @@ The system processes the input and returns relevant course recommendations.
 
 ---
 
-## ⚙️ How to Run
+##  How to Run
 
 ### 1. Install dependencies
 ```bash
