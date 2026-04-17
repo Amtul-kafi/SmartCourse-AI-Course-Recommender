@@ -72,7 +72,7 @@ The system processes the input and returns relevant course recommendations.
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 ### POST `/api/recommend`
 - Input: `query`, `model (tfidf / neural)`
